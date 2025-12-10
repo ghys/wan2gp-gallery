@@ -555,7 +555,7 @@ class GalleryPlugin(WAN2GPPlugin):
         v2_fps, _, _, v2_frames = self.get_video_info(vid2_path)
         
         def create_player(container_id, slider_id, path, fps): 
-            return f'<div id="{container_id}" class="video-joiner-player" data-slider-id="{slider_id}" data-fps="{fps}"><video src="{base_url}/gradio_api/file={path}" style="width:100%;" controls muted preload="metadata"></video></div>'
+            return f'<div id="{container_id}" class="video-joiner-player" data-slider-id="{slider_id}" data-fps="{fps}"><video src="/gradio_api/file={path}" style="width:100%;" controls muted preload="metadata"></video></div>'
 
         player1_html = create_player("video1_player_container", "video1_frame_slider", vid1_path, v1_fps)
         player2_html = create_player("video2_player_container", "video2_frame_slider", vid2_path, v2_fps)
@@ -604,4 +604,5 @@ class GalleryPlugin(WAN2GPPlugin):
             self.image_prompt_type_radio: gr.Radio(value="S"),
             self.image_prompt_type_endcheckbox: gr.Checkbox(value=True),
             self.plugin_data: {"merge_info": merge_info}
+
         }
